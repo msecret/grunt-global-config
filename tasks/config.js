@@ -42,7 +42,7 @@ module.exports = function(grunt) {
           c += "define('" + opts.module + "', function() { " + grunt.util.linefeed;
             c += "'use strict;'";
             c += opts.namespace + ' = ' + JSON.stringify(j) + ';' + grunt.util.linefeed;
-            c += "return Config;" + grunt.util.linefeed;:w
+            c += "return Config;" + grunt.util.linefeed;
           c += "});" + grunt.util.linefeed;
         });
 
