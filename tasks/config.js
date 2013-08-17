@@ -19,7 +19,8 @@ module.exports = function(grunt) {
      */
 
     var opts = this.options({
-      namespace: 'window.Config'
+      module: 'Config',
+      namespace: 'Config'
     });
 
     this.files.forEach(function(f) {
@@ -38,7 +39,11 @@ module.exports = function(grunt) {
           var f = grunt.file.read(p);
           var j = JSON.parse(grunt.config.process(f));
 
-          c += opts.namespace + ' = ' + JSON.stringify(j) + ';' + grunt.util.linefeed;
+          c += "define('" + opts.module + "', function() { " + grunt.util.linefeed;
+            c += "'use strict;'";
+            c += opts.namespace + ' = ' + JSON.stringify(j) + ';' + grunt.util.linefeed;
+            c += "return Config;" + grunt.util.linefeed;:w
+          c += "});" + grunt.util.linefeed;
         });
 
       grunt.file.write(f.dest, c);
