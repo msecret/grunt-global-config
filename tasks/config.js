@@ -40,7 +40,7 @@ module.exports = function(grunt) {
           var j = JSON.parse(grunt.config.process(f));
 
           c += "define('" + opts.module + "', function() { " + grunt.util.linefeed;
-            c += "'use strict;'";
+            c += "'use strict';" + grunt.util.linefeed;
             c += opts.namespace + ' = ' + JSON.stringify(j) + ';' + grunt.util.linefeed;
             c += "return Config;" + grunt.util.linefeed;
           c += "});" + grunt.util.linefeed;
